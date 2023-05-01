@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BaladeurMultiFormats
 {
-    internal class ChansonMP3
+    public class ChansonMP3
     {
     }
 }
