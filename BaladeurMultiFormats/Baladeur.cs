@@ -20,7 +20,7 @@ namespace BaladeurMultiFormats
 
         #region Propriété
 
-        public int NbChansons => throw new NotImplementedException();
+        public int NbChansons { get; }
 
         #endregion
 

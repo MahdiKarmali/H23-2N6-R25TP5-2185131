@@ -24,17 +24,17 @@ namespace BaladeurMultiFormats
         #region Propriétés
 
 
-        public int Annee => throw new NotImplementedException();
+        public int Annee { get; }
 
-        public string Artiste => throw new NotImplementedException();
+        public string Artiste { get; }
 
-        public string Format => throw new NotImplementedException();
+        public string Format { get; }
 
-        public string NomFichier => throw new NotImplementedException();
+        public string NomFichier { get; }
 
-        public string Paroles => throw new NotImplementedException();
+        public string Paroles { get; }
 
-        public string Titre => throw new NotImplementedException();
+        public string Titre { get; }
 
         #endregion
 
