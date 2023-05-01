@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BaladeurMultiFormats
 {
-    public class ChansonAAC 
+    public class ChansonAAC
     {
     }
 }
