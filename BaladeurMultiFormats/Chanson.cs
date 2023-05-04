@@ -65,7 +65,7 @@ namespace BaladeurMultiFormats
         /// Initialise une instance, elle appelle la méthode LireEntete
         /// </summary>
         /// <param name="pNomFichier"></param>
-        Chanson(string pNomFichier)
+        public Chanson(string pNomFichier)
         {
             m_nomFichier = pNomFichier;
             LireEntete();
@@ -80,7 +80,7 @@ namespace BaladeurMultiFormats
         /// <param name="pArtiste"></param>
         /// <param name="pTitre"></param>
         /// <param name="pAnnée"></param>
-        Chanson(string pRepertoire, string pArtiste, string pTitre, int pAnnée)
+        public Chanson(string pRepertoire, string pArtiste, string pTitre, int pAnnée)
         {
             m_artiste = pArtiste;
             m_titre = pTitre;
@@ -94,7 +94,7 @@ namespace BaladeurMultiFormats
 
         #region Méthodes
 
-        //dshoidsf
+        
 
         /// <summary>
         /// Écrit les paroles passées en paramètre dans le fichier de la chanson. Elle doit d’abord écrire l’en-tête ensuite écrire les paroles.
