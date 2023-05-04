@@ -94,6 +94,7 @@ namespace BaladeurMultiFormats
 
         #region Méthodes
 
+        //dshoidsf
 
         /// <summary>
         /// Écrit les paroles passées en paramètre dans le fichier de la chanson. Elle doit d’abord écrire l’en-tête ensuite écrire les paroles.
