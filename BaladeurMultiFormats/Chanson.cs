@@ -24,31 +24,68 @@ namespace BaladeurMultiFormats
         #region Propriétés
 
 
-        public int Annee { get; }
+        public int Annee
+        {
+            get { return m_annee; } 
+        }
 
-        public string Artiste { get; }
+
+        public string Artiste
+        {
+            get { return m_artiste; }
+        }
+
 
         public string Format { get; }
 
-        public string NomFichier { get; }
 
-        public string Paroles { get; }
+        public string NomFichier
+        {
+            get { return m_nomFichier;}
+        }
 
-        public string Titre { get; }
+
+        public string Paroles
+        {
+            get { return LireParoles(new StreamReader(m_nomFichier)); }
+        }
+
+
+        public string Titre
+        {
+            get { return m_titre; }
+        }
 
         #endregion
 
 
         #region Constructeurs
 
+        /// <summary>
+        /// Initialise une instance, elle appelle la méthode LireEntete
+        /// </summary>
+        /// <param name="pNomFichier"></param>
         Chanson(string pNomFichier)
         {
-
+            m_nomFichier = pNomFichier;
+            LireEntete();
         }
-        
+
+
+
+        /// <summary>
+        /// Initialise les instances, le nom de fichier doit contenir le nom de répertoire , le nom de fichier et son format.
+        /// </summary>
+        /// <param name="pRepertoire"></param>
+        /// <param name="pArtiste"></param>
+        /// <param name="pTitre"></param>
+        /// <param name="pAnnée"></param>
         Chanson(string pRepertoire, string pArtiste, string pTitre, int pAnnée)
         {
-
+            m_artiste = pArtiste;
+            m_titre = pTitre;
+            m_annee = pAnnée;
+            m_nomFichier = pRepertoire + m_nomFichier + "." + Format.ToLower();
         }
 
         #endregion
@@ -58,34 +95,43 @@ namespace BaladeurMultiFormats
         #region Méthodes
 
 
+        /// <summary>
+        /// Écrit les paroles passées en paramètre dans le fichier de la chanson. Elle doit d’abord écrire l’en-tête ensuite écrire les paroles.
+        /// </summary>
+        /// <param name="pParoles"></param>
         public void Ecrire(string pParoles)
         {
-            throw new NotImplementedException();
+            StreamWriter objFichier = new StreamWriter(m_nomFichier);
+
+            EcrireEntete(objFichier);
+            EcrireParoles(objFichier, pParoles);
+
+            objFichier.Close();
         }
 
-        public void EcrireEntete(StreamWriter pobjFichier)
-        {
-            throw new NotImplementedException();
-        }
+        /// <summary>
+        /// Des méthodes abstraites qui permettent d’écrire l’entête et les paroles de la chanson
+        /// </summary>
+        /// <param name="pobjFichier"></param>
+        public abstract void EcrireEntete(StreamWriter pobjFichier);
 
-        public void EcrireParoles(StreamWriter pobjFichier, string pParoles)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void LireEntete()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void EcrireParoles(StreamWriter pobjFichier, string pParoles);
 
-        public string LireParoles(StreamReader pobjFichier)
-        {
-            throw new NotImplementedException();
-        }
+
+        /// <summary>
+        /// Des méthodes abstraites à redéfinir dans les classes dérivées
+        /// </summary>
+        public abstract void LireEntete();
+
+
+        public abstract string LireParoles(StreamReader pobjFichier);
+        
 
         public void SauterEntete(StreamReader pobjFichier)
         {
-            throw new NotImplementedException();
+            pobjFichier.ReadLine();
+            
         }
 
         #endregion
