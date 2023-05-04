@@ -11,7 +11,7 @@ namespace BaladeurMultiFormats
     {
         #region Propriété
 
-        public string Format { get; }
+        public override string Format { get; }
 
         #endregion
 
@@ -55,6 +55,11 @@ namespace BaladeurMultiFormats
             pobjFichier.WriteLine("Titre = " + Titre + "Artiste = " + Artiste + "Année = " + Annee);
         }
 
+        /// <summary>
+        /// Encode les paroles reçues en paramètre au format AAC, ensuite écrit ses paroles encodées dans le fichier passé en paramètre.
+        /// </summary>
+        /// <param name="pobjFichier"></param>
+        /// <param name="pParoles"></param>
         public override void EcrireParoles(StreamWriter pobjFichier, string pParoles)
         {
             pobjFichier.Write(OutilsFormats.EncoderAAC(pParoles));
@@ -79,6 +84,11 @@ namespace BaladeurMultiFormats
             objFichier.Close();
         }
 
+        /// <summary>
+        /// Récupère les paroles de la chanson à partir du fichier passé en paramètre, les décode selon le format AAC et les retourne.
+        /// </summary>
+        /// <param name="pobjFichier"></param>
+        /// <returns></returns>
         public override string LireParoles(StreamReader pobjFichier)
         {
             string ligneLu = pobjFichier.ReadToEnd();

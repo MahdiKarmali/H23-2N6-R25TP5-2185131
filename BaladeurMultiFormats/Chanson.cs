@@ -36,7 +36,7 @@ namespace BaladeurMultiFormats
         }
 
 
-        public string Format { get; }
+        public abstract string Format { get; }
 
 
         public string NomFichier
