@@ -31,15 +31,18 @@ namespace BaladeurMultiFormats.Tests
         // Compléter la méthode pour tester le constructeur au cas où la chanson passée en 
         // deuxième paramètre est à null
 
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void ConsultationTestPourUneConsulationParam2NullTest()
         {
 
             // Arrange/Act : Instancier un objet Consultation avec la date actuelle et une chanson à null
             // À compléter...
+            Consultation objConsultation = new Consultation(DateTime.Now, null);
 
-           
             // Assert : Vérifier si le constructeur lève une exception ArgumentNullException
             // À compléter...
+            
         }
 
         // TODO Test B : ConsultationTestParamètreDateTest
